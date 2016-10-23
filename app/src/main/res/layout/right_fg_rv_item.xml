@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
-            name="music"
+            name="bean"
             type="org.sang.qqmusic.showMusic.model.bean.MusicBean"/>
     </data>
 
@@ -15,24 +14,30 @@
         android:layout_height="96dp">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:scaleType="centerCrop"
+            android:id="@+id/music_thumbnail"
+            android:layout_width="96dp"
             android:layout_height="96dp"
-            app:albumpic_small="@{music.albumpic_small}"/>
+            android:scaleType="centerCrop"
+            app:albumpic_small="@{bean.albumpic_small}"/>
+
+        <TextView
+            android:id="@+id/music_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/music_thumbnail"
+            android:singleLine="true"
+            android:text="@{bean.songname}"/>
 
         <TextView
             android:id="@+id/singerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:text="@{music.singername}"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_above="@id/singerName"
-            android:layout_centerHorizontal="true"
+            android:layout_below="@id/music_name"
+            android:layout_marginTop="4dp"
+            android:layout_alignLeft="@id/music_name"
             android:layout_marginBottom="4dp"
-            android:text="@{music.songname}"
-            android:layout_height="wrap_content"/>
+            android:text="@{bean.singername}"/>
     </RelativeLayout>
 </layout>
