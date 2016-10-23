@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <data>
 
         <variable
-            name="bean"
+            name="music"
             type="org.sang.qqmusic.showMusic.model.bean.MusicBean"/>
     </data>
 
@@ -18,7 +19,7 @@
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:scaleType="centerCrop"
-            app:albumpic_small="@{bean.albumpic_small}"/>
+            app:albumpic_small="@{music.albumpic_small}"/>
 
         <TextView
             android:id="@+id/music_name"
@@ -28,7 +29,7 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/music_thumbnail"
             android:singleLine="true"
-            android:text="@{bean.songname}"/>
+            android:text="@{music.songname}"/>
 
         <TextView
             android:id="@+id/singerName"
@@ -38,6 +39,6 @@
             android:layout_marginTop="4dp"
             android:layout_alignLeft="@id/music_name"
             android:layout_marginBottom="4dp"
-            android:text="@{bean.singername}"/>
+            android:text="@{music.singername}"/>
     </RelativeLayout>
 </layout>
