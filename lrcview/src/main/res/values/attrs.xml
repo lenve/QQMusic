@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LrcView">
+        <attr name="lrcMode" format="enum">
+            <enum name="KARAOKE" value="1"/>
+        </attr>
+        <attr name="hignLineColor" format="color|reference"/>
+        <attr name="lrcColor" format="color|reference"/>
+    </declare-styleable>
+</resources>
