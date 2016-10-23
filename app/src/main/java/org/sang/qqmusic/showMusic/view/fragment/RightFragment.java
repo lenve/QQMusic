@@ -2,7 +2,7 @@ package org.sang.qqmusic.showMusic.view.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,7 +47,8 @@ public class RightFragment extends BaseFragment implements IRightView {
     public void initRv(final List<MusicBean> list) {
         MusicBean.loader = new ImageLoader(((App) getActivity().getApplication()).getRequestQueue(), new BitmapCache(getActivity()));
         RvAdapter<MusicBean> adapter = new RvAdapter<>(getActivity(), list, R.layout.right_fg_rv_item, BR.music);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+//        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter.setOnItemClickListener(new RvAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
