@@ -17,7 +17,7 @@ public class LrcUtil {
      */
     public static List<LrcBean> parseStr2List(String lrcStr) {
         if (lrcStr == null || lrcStr.length() == 0) {
-            return null;
+            return null;  
         }
         List<LrcBean> list = new ArrayList<>();
         String lrcText = lrcStr.replaceAll("&#58;", ":")
