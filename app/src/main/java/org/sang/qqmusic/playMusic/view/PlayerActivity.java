@@ -39,7 +39,12 @@ public class PlayerActivity extends BaseActivity implements IPlayerView {
         @Override
         public void handleMessage(Message msg) {
             if (PlayUtil.CURRENT_STATE == PlayUtil.PLAY) {
-                currentTimeTv.setText(dateFormat.format(new Date(PlayUtil.player.getCurrentPosition())));
+                try {
+                    String timeFormat = dateFormat.format(new Date(PlayUtil.player.getCurrentPosition()));
+                    currentTimeTv.setText(timeFormat);
+                } catch (Exception e) {
+//                    e.printStackTrace();
+                }
                 seekBar.setProgress(PlayUtil.player.getCurrentPosition());
                 mHandler.sendEmptyMessageDelayed(0, 200);
             }
@@ -135,7 +140,11 @@ public class PlayerActivity extends BaseActivity implements IPlayerView {
         singerName.setText(currentMusic.getSingername());
         playerPresenter.loadLrc(PlayUtil.currentMusic.getSongid());
         mHandler.sendEmptyMessage(0);
-        totalTimeTv.setText(dateFormat.format(new Date(PlayUtil.currentMusic.getSeconds() * 1000)));
+        try {
+            totalTimeTv.setText(dateFormat.format(new Date(PlayUtil.currentMusic.getSeconds() * 1000)));
+        } catch (Exception e) {
+//            e.printStackTrace();
+        }
         seekBar.setMax(PlayUtil.currentMusic.getSeconds() * 1000);
     }
 
