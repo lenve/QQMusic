@@ -16,6 +16,9 @@ public class LrcUtil {
      * @return
      */
     public static List<LrcBean> parseStr2List(String lrcStr) {
+        if (lrcStr == null || lrcStr.length() == 0) {
+            return null;  
+        }
         List<LrcBean> list = new ArrayList<>();
         String lrcText = lrcStr.replaceAll("&#58;", ":")
                 .replaceAll("&#10;", "\n")
@@ -24,6 +27,9 @@ public class LrcUtil {
                 .replaceAll("&#45;", "-")
                 .replaceAll("&#13;", "\r").replaceAll("&#39;", "'");
         String[] split = lrcText.split("\n");
+        if (split == null || split.length == 0) {
+            return null;
+        }
         for (int i = 0; i < split.length; i++) {
             String lrc = split[i];
             if (lrc.contains(".")) {
